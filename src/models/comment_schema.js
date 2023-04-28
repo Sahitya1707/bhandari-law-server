@@ -1,19 +1,15 @@
 const mongoose = require("mongoose");
-const sliderSchema = new mongoose.Schema(
+const commentSchema = new mongoose.Schema(
   {
-    title: {
+    name: {
       type: String,
       required: true,
     },
-    description: {
+    comment: {
       type: String,
       required: true,
     },
-    image: {
-      type: String,
-      required: true,
-    },
-    link: {
+    id: {
       type: String,
       required: true,
     },
@@ -23,6 +19,6 @@ const sliderSchema = new mongoose.Schema(
   }
 );
 
-const Slider = mongoose.model("slider", sliderSchema);
+const Comment = mongoose.model("comment", commentSchema);
 
-module.exports = Slider;
+module.exports = Comment;

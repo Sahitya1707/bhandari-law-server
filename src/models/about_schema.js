@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
-const sliderSchema = new mongoose.Schema(
+const aboutSchema = new mongoose.Schema(
   {
     title: {
-      type: String,
-      required: true,
-    },
-    description: {
       type: String,
       required: true,
     },
@@ -13,7 +9,7 @@ const sliderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    link: {
+    description: {
       type: String,
       required: true,
     },
@@ -23,6 +19,5 @@ const sliderSchema = new mongoose.Schema(
   }
 );
 
-const Slider = mongoose.model("slider", sliderSchema);
-
-module.exports = Slider;
+const About = mongoose.model("about", aboutSchema);
+module.exports = About;

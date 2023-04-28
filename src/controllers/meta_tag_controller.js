@@ -3,7 +3,8 @@ const Meta = require("../models/meta_tag_schema");
 const addMeta = (req, res) => {
   // console.log("Meta has been reached");
 
-  console.log(req.body);
+  // console.log(req.body);
+
   const meta = new Meta({
     title: req.body.title,
     keyword: req.body.keyword,

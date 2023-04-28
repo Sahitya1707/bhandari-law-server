@@ -3,10 +3,13 @@ const { PORT } = require("./configs/configuration");
 const { json } = require("body-parser");
 const expressSession = require("express-session");
 const cors = require("cors");
+// const bodyParser = require("body-parser");
 const path = require("path");
 const databaseConnection = require("./db_connection/db_connection");
 const sliderRoute = require("./routes/slider_route");
-const metaRoute = require("./routes/meta_tag_router");
+const metaRoute = require("./routes/meta_tag_route");
+const commentRoute = require("./routes/comment_route");
+const aboutRoute = require("./routes/about_route");
 
 const app = express();
 
@@ -15,6 +18,7 @@ databaseConnection();
 require("dotenv").config();
 
 app.set("trust proxy", true);
+// app.use(bodyParser.json());
 app.use(json());
 app.use(cors());
 app.use(
@@ -31,7 +35,11 @@ app.use(
 // app.use("/api/admin", adminRouter);
 app.use("/api/slider", sliderRoute);
 app.use("/api/meta", metaRoute);
-app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+app.use("/api/comment", commentRoute);
+app.use("/api/about", aboutRoute);
+
+// app.use("/api/meta", metaRoute);
+app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 app.listen(PORT, () => {
   console.log(`listening on http://localhost:${PORT}`);
