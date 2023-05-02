@@ -37,10 +37,6 @@ const teamSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    position: {
-      type: String,
-      required: true,
-    },
   },
   {
     timestamps: true,

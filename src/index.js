@@ -10,6 +10,9 @@ const sliderRoute = require("./routes/slider_route");
 const metaRoute = require("./routes/meta_tag_route");
 const commentRoute = require("./routes/comment_route");
 const aboutRoute = require("./routes/about_route");
+const teamRoute = require("./routes/team_route");
+const blogRoute = require("./routes/blog_route");
+const serviceRoute = require("./routes/service_route");
 
 const app = express();
 
@@ -37,6 +40,9 @@ app.use("/api/slider", sliderRoute);
 app.use("/api/meta", metaRoute);
 app.use("/api/comment", commentRoute);
 app.use("/api/about", aboutRoute);
+app.use("/api/team", teamRoute);
+app.use("/api/blog", blogRoute);
+app.use("/api/service", serviceRoute);
 
 // app.use("/api/meta", metaRoute);
 app.use("/upload", express.static(path.join(__dirname, "upload")));

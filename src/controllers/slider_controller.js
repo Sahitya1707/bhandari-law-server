@@ -6,8 +6,8 @@ const addSlider = (req, res) => {
   // console.log(req);
   console.log("Slider has been reached");
 
-  console.log(req.body);
-  console.log(req.file.filename);
+  // console.log(req.body);
+  // console.log(req.file.filename);
   // console.log(req.body.image);
   const slider = new Slider({
     title: req.body.title,

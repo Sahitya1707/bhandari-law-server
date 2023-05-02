@@ -21,17 +21,26 @@ const serviceSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    metaTitle: {
+    testimonials: {
       type: String,
       required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+
+    metaTitle: {
+      type: String,
+      // required: true,
     },
     metaDescription: {
       type: String,
-      required: true,
+      // required: true,
     },
     keywords: {
       type: String,
-      required: true,
+      // required: true,
     },
   },
   {
@@ -39,6 +48,6 @@ const serviceSchema = new mongoose.Schema(
   }
 );
 
-const Slider = mongoose.model("slider", sliderSchema);
+const Service = mongoose.model("service", serviceSchema);
 
-module.exports = Slider;
+module.exports = Service;
