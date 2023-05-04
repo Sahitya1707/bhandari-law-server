@@ -41,11 +41,17 @@ const getOneAbout = (req, res) => {
     });
 };
 const updateAbout = (req, res) => {
+  console.log(`Route has been updated.`);
   const { id } = req.params;
   console.log(req.body);
+
   console.log(req.file);
-  console.log(id);
-  About.findByIdAndUpdate(id, req.body, { image: req.file.filename })
+
+  const update = {
+    image: req.file.filename,
+  };
+  // console.log(id);
+  About.findOneAndUpdate({ _id: id }, req.body, update, { new: true })
     .then((about) => {
       return res.status(200).json(about);
     })
