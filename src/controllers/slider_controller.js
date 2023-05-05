@@ -56,31 +56,32 @@ const deleteSlider = async (req, res) => {
     });
 };
 
-// const getSlider = (req, res) => {
-//   const { sliderId } = req.params;
-//   Slider.find({ _id: sliderId })
-//     .then((slider) => {
-//       return res.status(200).json(slider);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+const getSlider = (req, res) => {
+  const { id } = req.params;
+  // console.log(id);
+  Slider.findById(id)
+    .then((slider) => {
+      return res.status(200).json(slider);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
-// const updateSlider = (req, res) => {
-//   Slider.findByIdAndUpdate(req.params.sliderId, req.body, { new: true })
-//     .then((slider) => res.status(200).json(slider))
-//     .catch((err) => console.log(err));
-// };
+const updateSlider = (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  console.log(req.body);
 
-// const deleteSlider = (req, res) => {
-//   Slider.findByIdAndDelete(req.params.sliderId)
-//     .then((slider) => res.status(200).json(slider))
-//     .catch((err) => console.log(err));
-// };
+  Slider.findByIdAndUpdate({ _id: id }, req.body, { new: true })
+    .then((slider) => res.status(200).json(slider))
+    .catch((err) => console.log(err));
+};
 
 module.exports = {
   addSlider,
   getAllSliders,
   deleteSlider,
+  getSlider,
+  updateSlider,
 };

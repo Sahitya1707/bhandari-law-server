@@ -3,6 +3,8 @@ const {
   addSlider,
   getAllSliders,
   deleteSlider,
+  getSlider,
+  updateSlider,
 } = require("../controllers/slider_controller");
 // const path = require("path");
 const router = express.Router();
@@ -21,9 +23,9 @@ const upload = multer({ storage: storage });
 
 router.get("/get-all", getAllSliders);
 router.delete("/delete/:id", deleteSlider);
-// router.get("/get/:sliderId", getSlider);
+router.get("/get/:id", getSlider);
 router.post("/add", upload.single("image"), addSlider);
-// router.get("/update/:sliderId", updateSlider);
+router.put("/update/:id", upload.single("image"), updateSlider);
 
 // export default router;
 module.exports = router;

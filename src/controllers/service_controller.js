@@ -68,5 +68,23 @@ const getService = (req, res) => {
       console.log(err);
     });
 };
+const updateService = (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  console.log(req.body);
+  Service.findByIdAndUpdate({ _id: id }, req.body)
+    .then((service) => {
+      res.status(200).json(service);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
-module.exports = { addService, getAllService, deleteService, getService };
+module.exports = {
+  addService,
+  getAllService,
+  deleteService,
+  getService,
+  updateService,
+};

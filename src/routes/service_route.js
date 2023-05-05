@@ -7,6 +7,7 @@ const {
   getAllService,
   deleteService,
   getService,
+  updateService,
 } = require("../controllers/service_controller");
 
 const storage = multer.diskStorage({
@@ -24,5 +25,6 @@ router.post("/add", upload.single("image"), addService);
 router.get("/get-all", getAllService);
 router.delete("/delete/:id", deleteService);
 router.get("/get/:id", getService);
+router.put("/update/:id", upload.single("image"), updateService);
 
 module.exports = router;

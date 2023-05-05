@@ -41,7 +41,7 @@ const getOneAbout = (req, res) => {
     });
 };
 const updateAbout = (req, res) => {
-  console.log(`Route has been updated.`);
+  // console.log(`Route has been updated.`);
   const { id } = req.params;
   console.log(req.body);
 
