@@ -4,6 +4,7 @@ const {
   getAllTeam,
   deleteTeam,
   getTeam,
+  updateTeam,
 } = require("../controllers/team_controller");
 const router = express.Router();
 const multer = require("multer");
@@ -23,4 +24,5 @@ router.post("/add", upload.single("image"), addTeam);
 router.get("/get-all", getAllTeam);
 router.delete("/delete/:id", deleteTeam);
 router.get("/get/:id", getTeam);
+router.put("/update/:id", updateTeam);
 module.exports = router;

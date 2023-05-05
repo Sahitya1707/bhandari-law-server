@@ -68,9 +68,18 @@ const getTeam = (req, res) => {
       console.log(err);
     });
 };
+const updateTeam = async (req, res) => {
+  const { id } = req.params;
+  console.log(req.body);
+  console.log(id);
+  Team.findByIdAndUpdate({ _id: id }, req.body, { new: true }).then((team) => {
+    return res.status(200).json(team);
+  });
+};
 module.exports = {
   addTeam,
   getAllTeam,
   deleteTeam,
   getTeam,
+  updateTeam,
 };
