@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 
 const addService = (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const service = new Service({
     title: req.body.title,
     image: req.file.filename,
@@ -70,8 +70,8 @@ const getService = (req, res) => {
 };
 const updateService = (req, res) => {
   const { id } = req.params;
-  console.log(id);
-  console.log(req.body);
+  // console.log(id);
+  // console.log(req.body);
   Service.findByIdAndUpdate({ _id: id }, req.body)
     .then((service) => {
       res.status(200).json(service);

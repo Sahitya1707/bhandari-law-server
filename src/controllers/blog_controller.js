@@ -62,4 +62,16 @@ const getBlog = (req, res) => {
       console.log(err);
     });
 };
-module.exports = { addBlog, getAllBlog, deleteBlog, getBlog };
+const updateBlog = (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  console.log(req.body);
+  Blog.findByIdAndUpdate({ _id: id }, req.body)
+    .then((blog) => {
+      res.status(200).json(blog);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+module.exports = { addBlog, getAllBlog, deleteBlog, getBlog, updateBlog };

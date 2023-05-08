@@ -13,6 +13,7 @@ const aboutRoute = require("./routes/about_route");
 const teamRoute = require("./routes/team_route");
 const blogRoute = require("./routes/blog_route");
 const serviceRoute = require("./routes/service_route");
+const publicationRoute = require("./routes/publication_route");
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use("/api/about", aboutRoute);
 app.use("/api/team", teamRoute);
 app.use("/api/blog", blogRoute);
 app.use("/api/service", serviceRoute);
+app.use("/api/publication", publicationRoute);
 
 // app.use("/api/meta", metaRoute);
 app.use("/upload", express.static(path.join(__dirname, "upload")));

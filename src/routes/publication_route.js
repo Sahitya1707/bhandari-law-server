@@ -1,11 +1,11 @@
 const express = require("express");
 const {
-  addBlog,
-  getAllBlog,
-  deleteBlog,
-  getBlog,
-  updateBlog,
-} = require("../controllers/blog_controller");
+  getAllPublications,
+  addPublication,
+  getPublication,
+  deletePublication,
+  updatePublication,
+} = require("../controllers/publication_controller");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
@@ -19,10 +19,10 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
+router.post("/add", upload.single("image"), addPublication);
+router.get("/get-all", getAllPublications);
+router.delete("/delete/:id", deletePublication);
+router.get("/get/:id", getPublication);
+router.put("/update/:id", upload.single("image"), updatePublication);
 
-router.post("/add", upload.single("image"), addBlog);
-router.get("/get-all", getAllBlog);
-router.delete("/delete/:id", deleteBlog);
-router.get("/get/:id", getBlog);
-router.put("/update/:id", upload.single("image"), updateBlog);
 module.exports = router;
